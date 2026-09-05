@@ -1,5 +1,7 @@
 print("Welcome to the Student Data Organizer! \n\n")
+
 allstudents=[]
+
 while True :
     
     print("press 1 for add student")
@@ -15,11 +17,13 @@ while True :
         case 1 :
             print("\n\n")
             studentid=int(input("Enter student id  : "))
-            name=input("Enter employee name : ")
-            age=input("Enter employee age :")
-            grade=input("Enter employee grade :")
+            name=input("Enter student name : ")
+            age=input("Enter student age :")
+            grade=input("Enter student grade :")
             dateofbirth=int(input("Enter date of birth(YYYY-MM-DD)  :"))
-            subjects=input("Enter subjects(comma-seprated) :")
+            subject=input("Enter subjects(comma-seprated) :")
+            
+
 
 
             student={
@@ -28,7 +32,7 @@ while True :
                 "age":age,
                 "grade":grade,
                 "dateofbirth": dateofbirth,
-                "subjects":subjects
+                "subjects":subject
                 }
             allstudents.append(student)
             print("student add successfully..\n\n")
@@ -64,7 +68,7 @@ while True :
                 
         case 4 :
             if len(allstudents)==0:
-                print("\n\n not a added employee \n\n")
+                print("\n\n not a added student \n\n")
             else :
                 print("delete student")
                 sid=int(input("enter student id to delete: "))
@@ -77,11 +81,21 @@ while True :
         case 5:
             if len(allstudents)==0:
                 if len(allstudents)==0:
-                    print("\n\n not a added employee \n\n")
+                    print("\n\n not a added student \n\n")
             else :
-                print("display subjects offered \n")
-                for student in allstudents:
-                    print(f"studentid: {student['studentid']}, \nsubjects: {student['subjects']}\n\n")
+                
+                allNewSubjects = {}
+
+                allNewSubjects = set(allNewSubjects)
+                
+                for i in range(0, len(allstudents)) :
+                    newSub = allstudents[i]['subjects'].split(',')
+                    for j in range(0, len(newSub)) :
+                        allNewSubjects.add(newSub[j])
+
+                print("Subjects :",allNewSubjects)
+            
+            
                 
 
         case 6:
